@@ -4,19 +4,29 @@ import './App.css';
 import { Button, ButtonGroup, Checkbox, FormControlLabel, TextField } from '@material-ui/core'
 import SaveIcon  from '@material-ui/icons/Save'
 import DeleteIcon  from '@material-ui/icons/Delete'
-import { makeStyles } from '@material-ui/core/styles'
-
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { green, orange } from '@material-ui/core/colors'
 const useStyles = makeStyles({
   root: {
-    background: 'linear-gradient(45deg, #333, #999)',
+    background: 'linear-gradient(45deg, #FE688B, #FF8E53)',
     border: 0,
     marginBottom: 13, 
-    borderRadius: 13,
+    borderRadius: 15, 
     color: 'white',
-    padding: '0 30px',
+    padding: '5px 30px',
   }
 })
 
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: orange[400]
+    },
+    primary: {
+      main: '#19857b'
+    }
+  }
+})
 
 function ButtonStyled() {
   const classes = useStyles();
@@ -52,46 +62,45 @@ function CheckboxExample() {
 
 function App() {
   return (
-    <div className="App">
-      <header className= "App-header">
-      <ButtonStyled />
-      <TextField 
-        variant='outlined'
-        color='secondary'
-        type='email'
-        label='The Time'
-        placeholder='email.com'
-      />
-      <CheckboxExample />
-      <ButtonGroup variant='contained' color='primary'>
-        <Button 
-          variant ='contained' 
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <header className= "App-header">
+        <ButtonStyled />
+        <TextField 
+          variant='outlined'
+          color='secondary'
+          type='email'
+          label='The Time'
+          placeholder='email.com'
+        />
+        <CheckboxExample />
+        <ButtonGroup variant='contained' color='primary'>
+          <Button 
+            variant ='contained' 
+            
+            startIcon = {<SaveIcon />}
           
-          startIcon = {<SaveIcon />}
-         
-          size = 'large'
-        >
+            size = 'large'
+          >
 
-          Save
+            Save
 
-        </Button>
-        <Button 
-          size ='large' 
-          variant ='contained' 
+          </Button>
+          <Button 
+            size ='large' 
+            variant ='contained' 
+            startIcon = {<DeleteIcon />}
+          >
+
+            Discard 
+
+          </Button>
+        </ButtonGroup >
+          <img src={logo} className="App-logo" alt="logo" />
           
-          startIcon = {<DeleteIcon />}
-         
-        
-        >
-
-          Discard 
-
-        </Button>
-      </ButtonGroup >
-        <img src={logo} className="App-logo" alt="logo" />
-        
-      </header>
-    </div>
+        </header>
+      </div>
+    </ThemeProvider> 
   );
 }
 
