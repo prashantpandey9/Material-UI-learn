@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import logo from './logo.svg';
 import './App.css';
-import { Button, ButtonGroup, Checkbox, FormControlLabel, Container } from '@material-ui/core'
+import { Button, ButtonGroup, Checkbox, FormControlLabel, Container, AppBar, Toolbar, IconButton } from '@material-ui/core'
 import SaveIcon  from '@material-ui/icons/Save'
 import DeleteIcon  from '@material-ui/icons/Delete'
+import  MenuIcon from '@material-ui/icons/Menu'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { orange } from '@material-ui/core/colors'
+// import { orange } from '@material-ui/core/colors'
 import 'fontsource-roboto';
 import Typography from '@material-ui/core/Typography'
 import Paper from '@material-ui/core/Paper'
@@ -28,14 +29,7 @@ const theme = createMuiTheme({
       fontSize: 50,
     }
   },
-  palette: {
-    secondary: {
-      main: orange[400]
-    },
-    primary: {
-      main: '#19857b'
-    }
-  }
+  
 })
 
 function ButtonStyled() {
@@ -75,6 +69,19 @@ function App() {
     <ThemeProvider theme={theme}>
       <Container maxWidth='xs'>
         <div className="App">
+          <AppBar color="secondary">
+            <Toolbar>
+              <IconButton>
+                <MenuIcon />
+              </IconButton>
+              <Typography variant='h6'>
+               MUI Theming
+              </Typography>
+              <Button variant="contained" color="primary" justify="right" >
+                Login
+              </Button>
+            </Toolbar>
+          </AppBar>
           <header className= "App-header">
             <Typography variant='h2'>
             Heading 2
@@ -88,14 +95,14 @@ function App() {
             <ButtonStyled />
 
             <Grid container spacing={2} justify="center">
-              <Grid item>
-                <Paper style={{height: 75, width: 50,}} />
+              <Grid item xs={12} sm={6}>
+                <Paper style={{height: 75, width: "100%",}} />
               </Grid>
-              <Grid item>
-                <Paper style={{height: 75, width: 50,}} />
+              <Grid item xs={12} sm={3}>
+                <Paper style={{height: 75, width: "100%",}} />
               </Grid>
-              <Grid item>
-                <Paper style={{height: 75, width: 50,}} />
+              <Grid item xs={12} sm={3}>
+                <Paper style={{height: 75, width: "100%",}} />
               </Grid>
               
             </Grid>
@@ -110,9 +117,7 @@ function App() {
             <ButtonGroup variant='contained' color='primary'>
               <Button 
                 variant ='contained' 
-                
                 startIcon = {<SaveIcon />}
-              
                 size = 'large'
               >
 
