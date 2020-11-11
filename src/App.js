@@ -4,6 +4,8 @@ import './App.css';
 import { Button, ButtonGroup, Checkbox, FormControlLabel, TextField } from '@material-ui/core'
 import SaveIcon  from '@material-ui/icons/Save'
 import DeleteIcon  from '@material-ui/icons/Delete'
+import { makeStyles } from '@material-ui/core/styles'
+
 
 function CheckboxExample() {
   const [state, setState] = useState(true)
@@ -33,6 +35,10 @@ function App() {
       <header className= "App-header">
       <TextField 
         variant='filled'
+        color='secondary'
+        type='email'
+        label='The Time'
+        placeholder='email.com'
       />
       <CheckboxExample />
       <ButtonGroup variant='contained' color='primary'>
