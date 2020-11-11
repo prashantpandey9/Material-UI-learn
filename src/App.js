@@ -6,6 +6,27 @@ import SaveIcon  from '@material-ui/icons/Save'
 import DeleteIcon  from '@material-ui/icons/Delete'
 import { makeStyles } from '@material-ui/core/styles'
 
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #333, #999)',
+    border: 0,
+    marginBottom: 13, 
+    borderRadius: 13,
+    color: 'white',
+    padding: '0 30px',
+  }
+})
+
+
+function ButtonStyled() {
+  const classes = useStyles();
+  return (
+    <div>
+      <Button className={classes.root}>This is my Button</Button>
+    </div>
+  )
+}
+
 
 function CheckboxExample() {
   const [state, setState] = useState(true)
@@ -33,8 +54,9 @@ function App() {
   return (
     <div className="App">
       <header className= "App-header">
+      <ButtonStyled />
       <TextField 
-        variant='filled'
+        variant='outlined'
         color='secondary'
         type='email'
         label='The Time'
