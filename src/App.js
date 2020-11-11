@@ -20,6 +20,11 @@ const useStyles = makeStyles({
 })
 
 const theme = createMuiTheme({
+  typography: {
+    h2: {
+      fontSize: 50,
+    }
+  },
   palette: {
     secondary: {
       main: orange[400]
