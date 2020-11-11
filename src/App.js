@@ -5,7 +5,9 @@ import { Button, ButtonGroup, Checkbox, FormControlLabel, TextField } from '@mat
 import SaveIcon  from '@material-ui/icons/Save'
 import DeleteIcon  from '@material-ui/icons/Delete'
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles'
-import { green, orange } from '@material-ui/core/colors'
+import { orange } from '@material-ui/core/colors'
+import 'fontsource-roboto';
+import Typography from '@material-ui/core/Typography'
 const useStyles = makeStyles({
   root: {
     background: 'linear-gradient(45deg, #FE688B, #FF8E53)',
@@ -65,38 +67,47 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <header className= "App-header">
-        <ButtonStyled />
-        <TextField 
-          variant='outlined'
-          color='secondary'
-          type='email'
-          label='The Time'
-          placeholder='email.com'
-        />
-        <CheckboxExample />
-        <ButtonGroup variant='contained' color='primary'>
-          <Button 
-            variant ='contained' 
+          <Typography variant='h2'>
+           Heading 2
+          </Typography>
+          <Typography variant='subtitle1'>
+            Subtitle1
+          </Typography>
+          <Typography variant='body1'>
+            Body 1
+          </Typography>
+          <ButtonStyled />
+          <TextField 
+            variant='outlined'
+            color='secondary'
+            type='email'
+            label='The Time'
+            placeholder='email.com'
+          />
+          <CheckboxExample />
+          <ButtonGroup variant='contained' color='primary'>
+            <Button 
+              variant ='contained' 
+              
+              startIcon = {<SaveIcon />}
             
-            startIcon = {<SaveIcon />}
-          
-            size = 'large'
-          >
+              size = 'large'
+            >
 
-            Save
+              Save
 
-          </Button>
-          <Button 
-            size ='large' 
-            variant ='contained' 
-            startIcon = {<DeleteIcon />}
-          >
+            </Button>
+            <Button 
+              size ='large' 
+              variant ='contained' 
+              startIcon = {<DeleteIcon />}
+            >
 
-            Discard 
+              Discard 
 
-          </Button>
-        </ButtonGroup >
-          <img src={logo} className="App-logo" alt="logo" />
+            </Button>
+          </ButtonGroup >
+            <img src={logo} className="App-logo" alt="logo" />
           
         </header>
       </div>
